@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
+
+/* Global Styles */
+:root {
+  --primary-color: hsl(259, 100%, 65%);
+  --warning-color: hsl(0, 100%, 67%);
+  --gray: hsl(0, 1%, 44%);
+  --light-gray: hsl(0, 0%, 88%);
+  --black: hsl(0, 0%, 8%);
+  --container-background-color: #eee;
+  --calculator-component-background-color: #fdfdfd;
+
+  --font-family: "Poppins", sans-serif;
+  --font-primary: 700 2rem var(--font-family);
+  --font-heavy: italic 800 6.5rem var(--font-family);
+  --font-light: italic 400 0.8rem var(--font-family);
+
+  --input-box-width: 9rem;
+  --button-radius: 6rem;
+}
+
+/* Remove Arrows/Spinners */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* remove default styles */
+*::before,
+*::after,
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* draw the background and center the component */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--container-background-color);
+  padding: 1rem;
+}
+
+
+
+/* style begins */
+.calculator-app-component {
+  display: flex;
+  flex-direction: column;
+  min-width: min(100%, 50rem);
+  padding: 4rem;
+  background-color: var(--calculator-component-background-color);
+  border-radius: 30px 30px 200px 30px;
+  box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+.date-input-form {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.date-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--gray);
+}
+
+.date-input > label {
+  font: var(--font-primary);
+  font-size: 0.8em;
+  letter-spacing: 0.4ch;
+  text-transform: uppercase;
+}
+
+.date-input > input {
+  font: var(--font-primary);
+  padding: 0.5rem 0 0.5rem 1.25rem;
+  width: var(--input-box-width);
+  border: var(--light-gray) 1px solid;
+  border-radius: 5px;
+  caret-color: var(--primary-color);
+
+  transition: border-color 0.2s ease-in-out;
+}
+
+.date-input > input:focus, .date-input > input:active {
+    border: var(--primary-color) 1px solid;
+    outline: none;
+}
+
+.warning {
+  display: none;
+  color: var(--warning-color);
+  font: var(--font-light);
+}
+
+.submit-group {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.submit-group::before {
+  content: "";
+  position: absolute;
+  inset: calc(50% - 1px) var(--button-radius) 50% 0;
+  height: 2px;
+  border-radius: 2px;
+  background-color: var(--light-gray);
+}
+
+.submit-button-container > button {
+  aspect-ratio: 1/1;
+  width: var(--button-radius);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 50%;
+  
+  transition:  background-color 0.2s ease-in-out;
+}
+
+.submit-button-container > button:hover {
+  background-color: var(--black);
+}
+
+.submit-button-container > button > img {
+  aspect-ratio: 1/1;
+  width: 45%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.display-group {
+  font: var(--font-heavy);
+}
+
+.age-display-container {
+  line-height: 1.1;
+}
+.age-display-number {
+  color: var(--primary-color);
+  margin-inline-end: 0.2ch;
+}
+
+/* for phone screen size */
+/* override the previous styles */
+@media screen and (max-width: 750px) {
+  :root {
+    --font-primary: 700 1.4rem var(--font-family);
+    --font-heavy: italic 800 3.5rem var(--font-family);
+    --font-light: italic 400 0.8rem var(--font-family);
+
+    --input-box-width: 100%;
+    --button-radius: 4rem;
+  }
+
+  .calculator-app-component {
+    padding: 3rem 1.5rem;
+    border-radius: 20px 20px 120px 20px;
+  }
+
+  .date-input-form {
+    gap: 1rem;
+  }
+
+  .date-input {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+  }
+
+  .date-input > label {
+    font-size: 0.75em;
+    letter-spacing: 0.3ch;
+  }
+
+  .date-input > input {
+    padding: 0.5rem;
+  }
+
+  .submit-group {
+    justify-content: center;
+    margin-block: 2rem;
+  }
+
+  .submit-button-container {
+    z-index: 1;
+  }
+}

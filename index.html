@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+
+    <title>Age calculator app (Visual Only)</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator-app-component">
+        <div class="date-input-group">
+          <form class="date-input-form" id="date-input-form">
+            <div class="date-input day-group">
+              <label for="day">Day</label>
+              <input
+                type="number"
+                id="day"
+                name="day"
+                autocomplete="off"
+                inputmode="numeric"
+                placeholder="DD"
+                min="1"
+                max="31"
+                required
+              />
+              <div class="warning">Invalid input.</div>
+            </div>
+
+            <div class="date-input month-group">
+              <label for="month">Month</label>
+              <input
+                type="number"
+                id="month"
+                name="month"
+                autocomplete="off"
+                inputmode="numeric"
+                placeholder="MM"
+                min="1"
+                max="12"
+                required
+              />
+              <div class="warning">Invalid input.</div>
+            </div>
+
+            <div class="date-input year-group">
+              <label for="year">Year</label>
+              <input
+                type="number"
+                id="year"
+                name="year"
+                autocomplete="off"
+                inputmode="numeric"
+                placeholder="YYYY"
+                min="1000"
+                max="3000"
+                required
+              />
+              <div class="warning">Invalid input.</div>
+            </div>
+          </form>
+        </div>
+
+        <div class="submit-group">
+          <div class="submit-button-container">
+            <button form="date-input-form">
+              <img src="./assets/images/icon-arrow.svg" alt="Submit" />
+            </button>
+          </div>
+        </div>
+
+        <div class="display-group">
+          <div class="age-display-container year-dispaly">
+            <span class="age-display-number">--</span>
+            <span class="age-display-unit">years</span>
+          </div>
+          <div class="age-display-container month-dispaly">
+            <span class="age-display-number">--</span>
+            <span class="age-display-unit">months</span>
+          </div>
+          <div class="age-display-container day-dispaly">
+            <span class="age-display-number">--</span>
+            <span class="age-display-unit">days</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
